@@ -7,6 +7,17 @@ const Form = styled.form`
     flex-direction: column;
     align-items: center;
     width: 100%;
+    border: 2px solid black;
+    background: grey;
+`;
+const Button = styled.button`
+    color: white;
+    background: red;
+    &:hover{
+        cursor: pointer;
+        border: 1px solid black;
+        color: black;
+    }
 `;
 
 const AddForm = props => {
@@ -37,20 +48,23 @@ const AddForm = props => {
             <label htmlFor="name">Member Name</label>
             <input type="text"
                     name="name"
+                    placeholder="name"
                     value={member.name}
                 onChange={changeHandler}/>
             <label htmlFor="email">Member Email</label>
             <input type="text"
                     name="email"
+                    placeholder="email"
                     value={member.email}
                 onChange={changeHandler}/>
             <label htmlFor="role">Member Role</label>
             <input type="text"
                     name="role"
+                    placeholder="job title"
                     value={member.role}
                 onChange={changeHandler}/>
 
-            <button type="submit">Add Member</button>
+            <Button type="submit">Add Member</Button>
 
         </Form>
     )

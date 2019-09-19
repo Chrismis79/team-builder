@@ -4,7 +4,10 @@ import ReactDOM from "react-dom";
 import AddForm from "./components/AddForm";
 import NewMember from "./components/NewMember";
 import './App.css';
+import styled from "styled-components";
 import data from "./data";
+
+
 
 function App() {
 const [members, setMembers] = useState(data);
@@ -20,8 +23,9 @@ const addNewMember = member => {
       </header>
 
       <AddForm addNewMember={addNewMember} />
-
+      
       <NewMember memberList={members} />
+     
     </div>
   );
 }
