@@ -1,13 +1,22 @@
 import React, {useState} from "react";
+import ReactDOM from "react-dom";
+import styled from "styled-components";
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+`;
 
 const AddForm = props => {
-    console.log(props);
+    console.log("addform props:", props);
 
-    const [member, setMember] = useState({
+    const [member, setMember] = useState([{
         name: "",
         email: "",
         role: ""
-    });
+    }]);
 
     const changeHandler = event => {
         setMember({...member, [event.target.name]: event.target.value});
@@ -24,7 +33,7 @@ const AddForm = props => {
         setMember({name: "", email: "", role: ""});
     }
     return (
-        <form onSubmit={submitForm}>
+        <Form onSubmit={submitForm}>
             <label htmlFor="name">Member Name</label>
             <input type="text"
                     name="name"
@@ -32,18 +41,18 @@ const AddForm = props => {
                 onChange={changeHandler}/>
             <label htmlFor="email">Member Email</label>
             <input type="text"
-                    email="email"
+                    name="email"
                     value={member.email}
                 onChange={changeHandler}/>
             <label htmlFor="role">Member Role</label>
             <input type="text"
-                    role="role"
+                    name="role"
                     value={member.role}
                 onChange={changeHandler}/>
 
             <button type="submit">Add Member</button>
 
-        </form>
+        </Form>
     )
 }
 
